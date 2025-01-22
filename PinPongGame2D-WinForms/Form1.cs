@@ -29,33 +29,37 @@ namespace PinPongGame2D_WinForms
             ball.Left += speed_left;
             ball.Top += speed_top;
 
-            if (ball.Left <= playGround.Left)
+            if (ball.Left <= playGround.Left || ball.Right >= playGround.Right)
             {
                 speed_left = -speed_left;
             }
-            if (ball.Right >= playGround.Right)
-            {
-                speed_left = -speed_left;
-            }
+     
             if (ball.Top <= playGround.Top)
             {
                 speed_top = -speed_top;
+            }
+
+            if (ball.Bottom >= racket.Top && ball.Bottom <= racket.Bottom)
+            {
+                if (ball.Left >= racket.Left && ball.Right <= racket.Right)
+                {
+                    speed_top += 2;
+                    speed_left += 2;
+                    speed_top = -speed_top;
+                    points++;
+                    points_Lbl.Text = points.ToString();
+                    Random rnd = new Random();
+                    playGround.BackColor = Color.FromArgb(rnd.Next(150, 255), rnd.Next(150, 255), rnd.Next(150, 255));
+                }
+                if (ball.Left < racket.Left || ball.Right > racket.Right)
+                {
+                    speed_left = -speed_left;                
+                }
             }
             if (ball.Bottom >= playGround.Bottom)
             {
                 gameover_Lbl.Visible = true;
                 timer1.Enabled = false;
-            }
-            if (ball.Bottom >= racket.Top && ball.Bottom <= racket.Bottom && ball.Left >= racket.Left && ball.Right <= racket.Right)
-            {
-                speed_top += 2;
-                speed_left += 2;
-                speed_top = -speed_top;
-                points++;
-                points_Lbl.Text = points.ToString();
-
-                Random rnd = new Random();
-                playGround.BackColor = Color.FromArgb(rnd.Next(150, 255), rnd.Next(150, 255), rnd.Next(150, 255));
             }
         }
 

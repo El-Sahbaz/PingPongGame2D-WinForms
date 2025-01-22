@@ -1,4 +1,6 @@
-﻿namespace PinPongGame2D_WinForms
+﻿using System.Net.Sockets;
+
+namespace PinPongGame2D_WinForms
 {
     partial class gameForm
     {
@@ -29,6 +31,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
             playGround = new Panel();
             gameover_Lbl = new Label();
             points_Lbl = new Label();
@@ -88,19 +91,23 @@
             // 
             // ball
             // 
-            ball.BackColor = Color.Crimson;
+            ball.BackColor = Color.Transparent;
+            ball.Image = (Image)resources.GetObject("ball.Image");
             ball.Location = new Point(398, 185);
             ball.Name = "ball";
-            ball.Size = new Size(10, 10);
+            ball.Size = new Size(20, 20);
+            ball.SizeMode = PictureBoxSizeMode.AutoSize;
             ball.TabIndex = 1;
             ball.TabStop = false;
             // 
             // racket
             // 
-            racket.BackColor = Color.Black;
-            racket.Location = new Point(352, 396);
+            racket.BackColor = Color.Transparent;
+            racket.Image = (Image)resources.GetObject("racket.Image");
+            racket.Location = new Point(322, 347);
             racket.Name = "racket";
-            racket.Size = new Size(100, 12);
+            racket.Size = new Size(156, 133);
+            racket.SizeMode = PictureBoxSizeMode.StretchImage;
             racket.TabIndex = 0;
             racket.TabStop = false;
             // 
@@ -124,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)racket).EndInit();
             ResumeLayout(false);
         }
+
 
         #endregion
 
