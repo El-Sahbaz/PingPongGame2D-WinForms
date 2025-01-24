@@ -69,9 +69,9 @@ namespace PinPongGame2D_WinForms
             // points_Lbl
             // 
             points_Lbl.AutoSize = true;
-            points_Lbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic);
+            points_Lbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             points_Lbl.ForeColor = Color.Black;
-            points_Lbl.Location = new Point(134, 29);
+            points_Lbl.Location = new Point(143, 29);
             points_Lbl.Name = "points_Lbl";
             points_Lbl.Size = new Size(38, 45);
             points_Lbl.TabIndex = 3;
@@ -93,10 +93,10 @@ namespace PinPongGame2D_WinForms
             // 
             ball.BackColor = Color.Transparent;
             ball.Image = (Image)resources.GetObject("ball.Image");
-            ball.Location = new Point(398, 185);
+            ball.Location = new Point(374, 185);
             ball.Name = "ball";
-            ball.Size = new Size(20, 20);
-            ball.SizeMode = PictureBoxSizeMode.AutoSize;
+            ball.Size = new Size(80, 40);
+            ball.SizeMode = PictureBoxSizeMode.StretchImage;
             ball.TabIndex = 1;
             ball.TabStop = false;
             // 

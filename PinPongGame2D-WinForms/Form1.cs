@@ -1,7 +1,12 @@
+using System.Media;
+
 namespace PinPongGame2D_WinForms
 {
     public partial class gameForm : Form
     {
+        System.Media.SoundPlayer catEatingSound = new System.Media.SoundPlayer(@"C:\Users\Emre\Desktop\Hayat\Yazilim Sektoru\Yazilim Ogrenme\Projeler\PinPongGame2D-WinForms\PinPongGame2D-WinForms\bin\Debug\net8.0-windows\pics\cateat.wav");
+
+
         public int speed_left = 4;
         public int speed_top = 4;
         public int points = 0;
@@ -43,6 +48,7 @@ namespace PinPongGame2D_WinForms
             {
                 if (ball.Left >= racket.Left && ball.Right <= racket.Right)
                 {
+                    catEatingSound.Play();
                     speed_top += 2;
                     speed_left += 2;
                     speed_top = -speed_top;
@@ -62,8 +68,9 @@ namespace PinPongGame2D_WinForms
                 timer1.Enabled = false;
             }
         }
+     
 
-        private void gameForm_KeyDown(object sender, KeyEventArgs e)
+    private void gameForm_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Escape)
             {
